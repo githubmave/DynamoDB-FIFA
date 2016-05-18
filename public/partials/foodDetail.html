@@ -19,7 +19,8 @@
             	<li >
               	 {{foodList2[routeId].SHORTNAME}} |  {{foodList2[routeId].PRICE|currency}}
               	 
-                  
+                   <span><select ng-model='selectedQuty', ng-options='obj.QUTY for obj in qutyList2'></select></span>
+
               	
 
               </li>
@@ -41,10 +42,17 @@
 
             <ul>
 
+                 <input type="button" value="Add to Cart"   class="btn btn-danger"   ng-click='addToYourCart()'/> (click , wait... )
+
+            </ul>
+
+            <ul>
+
                   <li  ng-repeat='item in cartItemList'>
 
                       <!-- <input type="checkbox" ng-click="deleteCartItem(item._id)">  -->
                       {{item.NAME}}: {{item.PRICE|currency}}   x   {{item.QUTY}} 
+
 
                       
                   </li>

@@ -49,6 +49,28 @@
 
  	
  	$scope.newCartItem={};
+
+
+
+  $scope.addToYourCart=function(){
+
+
+    $scope.newCartItem.PRICE=$scope.foodList2[$scope.routeId].PRICE;
+    $scope.newCartItem.NAME=$scope.foodList2[$scope.routeId].SHORTNAME;
+    $scope.newCartItem.QUTY=$scope.selectedQuty.QUTY;
+
+      
+  
+            CartItemFac.create($scope.newCartItem)
+
+            .success(function(data) {
+                    $scope.loading = false;
+                    
+                    $scope.newCartItem={};
+                    $scope.cartItemList = data;
+
+                  });
+ };
  	
  
 
@@ -61,7 +83,6 @@
     $scope.newCartItem.QUTY=$scope.selectedQuty.QUTY;
 
       
-    // if($scope.newCartItem.NAME!=undefined && $scope.newCartItem.QUTY!=undefined){
   
             CartItemFac.create($scope.newCartItem)
 
@@ -72,7 +93,6 @@
                     $scope.cartItemList = data;
 
                   });
-    // };
  };
 
  // delect items
